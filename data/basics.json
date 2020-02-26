@@ -1,0 +1,53 @@
+{
+    "basics": [
+        {
+            "values": [1000,1000],
+            "options": ["white flour", "wheat flour"],
+            "probabilities": [".7", ".3"],
+            "class": [["Grain", "Flour"],["Grain", "Flour"]]
+        },
+        {
+            "values": [850, 850],
+            "options": ["milk", "buttermilk"],
+            "probabilities": [".8", ".2"],
+            "class": [["Dairy", "Creams and Eggs"], ["Dairy", "Creams and Eggs"]]
+        },
+        {
+           "values": [250],
+           "options": ["egg"],
+           "probabilities": ["1"],
+           "class": [["Dairy", "Creams and Eggs"]]
+        },
+        {
+           "values": [6],
+           "options": ["salt"],
+           "probabilities": ["1"],
+           "class": [["Spices, Herbs, Seasonings, and Sauces", "Salt and Pepper"]]
+        },
+        {
+           "values": [42],
+           "options": ["baking powder"],
+           "probabilities": ["1"],
+           "class": [["Spices, Herbs, Seasonings, and Sauces", "Spices"]]
+        },
+        {
+            "values": [250,333],
+            "options": ["vegetable oil", "unsalted butter"],
+            "probabilities": [".4", ".6"],
+            "class": [["Spices, Herbs, Seasonings, and Sauces", "Grease and Fat"], ["Dairy", "Creams and Eggs"]]
+        },
+        {
+           "values": [35],
+           "options": ["sugar"],
+           "probabilities": ["1"],
+           "class": [["Spices, Herbs, Seasonings, and Sauces","Sweetener", "Dry"]]
+        },
+        {
+           "values": [8],
+           "options": ["vanilla extract"],
+           "probabilities": ["1"],
+           "class": [["Spices, Herbs, Seasonings, and Sauces","Sauces"]]
+        }
+
+    ]
+}
