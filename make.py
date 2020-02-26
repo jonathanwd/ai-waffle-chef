@@ -18,13 +18,14 @@ def cook(inspiration, model, all_recipes):
         idea = idea[0].replace('_', ' ').lower()
         possibilities.append(idea)
         pieces = idea.split(" ", 1)
-
         if len(pieces) == 2:
-            possibilities.append(pieces[0])
-            possibilities.append(pieces[1])
-
+            if pieces[0] not in possibilities:
+                possibilities.append(pieces[0])
+            if pieces[1] not in possibilities:
+                possibilities.append(pieces[1])
+        print(idea)
+    print(possibilities)
     for possibility in possibilities:
-        #print(possibility)
         classed = classify(possibility)
         if not classed:
             classed = classify(possibility + "s")
@@ -68,11 +69,10 @@ while True:
     for i in initial_ingredients:
         i.multiply(multiplier)
         recipe.add_ingredient(i)
-        print(i)
     for i in new_ingredients:
         i.multiply(multiplier)
         recipe.add_ingredient(i)
-        print(i)
+    recipe.print_ingredients()
     print('')
     print(recipe.print_recipe())
     print("---------------------------------------")

@@ -48,6 +48,17 @@ class recipeClass:
                 toppings = "Serve with " +  self.toppings[0].get_name() + '.\n'
         toppings = toppings + "Enjoy!\n"
         return ''.join([dry,wet,mix,cook,toppings])
+    def print_ingredients(self): 
+        for ingredient in self.flour:
+            print(ingredient)
+        for ingredient in self.dry:
+            print(ingredient)
+        for ingredient in self.wet:
+            print(ingredient)
+        for ingredient in self.mix:
+            print(ingredient)
+        for ingredient in self.toppings:
+            print(ingredient)
 class ingredientClass:
     def __init__(self, ingredient_object = None):
         if ingredient_object:
