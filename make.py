@@ -44,7 +44,7 @@ def cook(inspiration, model, all_recipes):
     return new_ingredients
 
 #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
-model = gensim.models.KeyedVectors.load_word2vec_format('D:\ML\Word2Vec\GoogleNews-vectors-negative300.bin', binary=True)
+model = gensim.models.KeyedVectors.load_word2vec_format('J:\ML\GoogleNews-vectors-negative300.bin', binary=True)
 f = open('data/layer1.json', 'r')
 all_recipies = f.read().splitlines()
 f.close()
@@ -72,8 +72,9 @@ while True:
     for i in new_ingredients:
         i.multiply(multiplier)
         recipe.add_ingredient(i)
+    recipe.update_amounts()
     recipe.print_ingredients()
     print('')
     print(recipe.print_recipe())
     print("---------------------------------------")
-    print('')
+    

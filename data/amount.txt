@@ -843,3 +843,4 @@ nutella 375
 salted butter 375
 unsalted butter 375
 vanilla extract 16
+molé -1
