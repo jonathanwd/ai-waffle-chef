@@ -11,8 +11,17 @@ import logging
 def cook(inspiration, model, all_recipes):
     new_ingredients = []
     print("You want me to make a " + inspiration + " waffle?")
-    additional_keywd = random.choice(["butter","meal","bake", "ingredients", "flour"])
-    ideas = ingredientIdeas(model, [inspiration, additional_keywd], [])
+    # additional_keywd = random.choice(["butter","meal","bake", "ingredients", "flour"])
+    flour_ideas = ingredientIdeas(model, [inspiration, "flour"], [])
+    butter_ideas = ingredientIdeas(model, [inspiration, "butter"], [])
+    sugar_ideas = ingredientIdeas(model, [inspiration, "sugar"], [])
+    ingredient_ideas = ingredientIdeas(model, [inspiration, "ingredient"], [])
+    meal_ideas = ingredientIdeas(model, [inspiration, "meal"], [])
+    bake_ideas = ingredientIdeas(model, [inspiration, "bake"], [])
+    spice_ideas = ingredientIdeas(model, [inspiration, "spice"], [])
+    ideas = flour_ideas + butter_ideas + sugar_ideas + ingredient_ideas + meal_ideas + bake_ideas + spice_ideas
+    ideas = set(ideas)
+    # ideas = ingredientIdeas(model, [inspiration, additional_keywd], [])
     possibilities = []
     for idea in ideas:
         idea = idea[0].replace('_', ' ').lower()
@@ -24,10 +33,11 @@ def cook(inspiration, model, all_recipes):
             if pieces[1] not in possibilities:
                 possibilities.append(pieces[1])
         print(idea)
+    possibilities = set(possibilities)
     print(possibilities)
     for possibility in possibilities:
         classed = classify(possibility)
-        if not classed:
+        if not classed: 
             classed = classify(possibility + "s")
         if not classed:
             classed = classify(possibility[:-1])
@@ -35,6 +45,7 @@ def cook(inspiration, model, all_recipes):
             a = int(get_amount(possibility))
             if a > 0:
                 print(classed)
+                print(possibility)
                 new_ingredient = ingredientClass()
                 new_ingredient.define_me(possibility, a, classed)
                 new_ingredients.append(new_ingredient)

@@ -13,7 +13,7 @@ class recipeClass:
         self.toppings = []
         self.flour_options = ['Flour','Mixes']
         self.dry_options = ['Spices', 'Dry', 'Salt and Pepper', 'Corn and Wheat', 'Chips, Crumbs, and Grits', 'Rice', 'Other Grain', 'Pasta', 'Seeds']
-        self.wet_options = ['Creams and Eggs', 'Wet', 'Sauces', 'Liquids', 'Grease and Fat', 'Nut butter']
+        self.wet_options = ['Creams and Eggs', 'Wet', 'Sauces', 'Liquids', 'Grease and Fat', 'Nut butter', 'Chilies']
         self.mix_options = ['Meats', 'Fruits', 'Vegetables', 'Cheese', 'Mix', 'Nut', 'Bread', 'Weird Spices']
         self.toppings_options = []
         self.flour_dry_low = 50
