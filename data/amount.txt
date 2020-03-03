@@ -1,126 +1,126 @@
 linguica 500
 wagyu 500
 terrine 500
-oxtail 16000
+oxtail 600
 chourico 500
-turtle meat 10667
-giblet 10584
+turtle meat 800
+giblet 800
 rattlesnake 500
-rabbit 2125
+rabbit 500
 squirrel 500
-buffalo 1333
+buffalo 500
 bison 500
 elk meat 500
-bear 1333
-caribou 1000
+bear 500
+caribou 600
 moose 500
-tasso 2000
-casing 1500
-venison 16000
+tasso 700
+casing 500
+venison 700
 elk 500
-duck breast 2500
-duck 3000
+duck breast 700
+duck 700
 bratwurst 500
-pot roast 10667
+pot roast 700
 roast 667
 bacon 562
-crumbled bacon 1000
-frankfurters 24000
+crumbled bacon 400
+frankfurters 700
 hot dog 147
 hotdog 500
 pigs feet 500
-speck 1250
-kielbasa 1750
+speck 500
+kielbasa 700
 mortadella 500
-ground pork 2000
-ham 4000
+ground pork 700
+ham 700
 pig trotter 500
 pig's feet 500
 pig's tail 500
 pig's ear 500
 spam 500
-bologna 5333
+bologna 700
 pork neck 500
-bone 7000
-pork sausage 1000
-chorizo sausage 2458
-sausage 1000
+bone 700
+pork sausage 700
+chorizo sausage 700
+sausage 700
 salami 500
 pork sparerib 500
 pork rib 500
 loin chop 500
-sparerib 1000
+sparerib 700
 spare rib 500
-pork 1333
-tenderloin 10667
-pork loin 1800
+pork 500
+tenderloin 700
+pork loin 500
 pork stew meat 500
 boneless pork 125
 pork sirloin 500
-pork 1333
-pancetta 1333
+pork 500
+pancetta 500
 prosciutto 820
 proscuitto 500
 pork shoulder 667
-lamb 12000
+lamb 700
 mutton 500
 lean ground 625
 filet mignon 500
-brisket 8000
-veal 8000
-ground venison 48000
+brisket 500
+veal 500
+ground venison 700
 marrow bone 500
-ground beef 2000
-beef 8000
+ground beef 500
+beef 500
 hamburger 250
 ground round 188
-meatball 1000
-meatloaf 2000
+meatball 500
+meatloaf 500
 steak 500
-sirloin 1000
+sirloin 500
 tri-tip 500
 tofu 750
-firm tofu 2667
+firm tofu 500
 beyond meat 500
 vegetarian burger 500
-veggie burger 6000
+veggie burger 600
 hen 667
 alligator meat 500
 chicken fryer 500
 chicken carcass 250
-escargot 4000
-pheasant 8000
+escargot 400
+pheasant 500
 ground turkey 500
-roasted chicken 9334
-chicken breast 8000
+roasted chicken 500
+chicken breast 500
 chicken leg 500
-chicken thigh 10000
-turkey carcass 10000
-chicken 8000
-turkey 8000
-shrimp 4000
-crayfish 10667
-crawfish 4000
-lobster 7334
-crab meat 5666
-crab 4000
-conch 1333
-clam 6000
+chicken thigh 700
+turkey carcass 700
+chicken 500
+turkey 500
+shrimp 500
+crayfish 700
+crawfish 500
+lobster 500
+crab meat 500
+crab 500
+conch 500
+clam 500
 vongole 500
-quahog 32750
+quahog 700
 fish ball 500
-prawns 3000
+prawns 500
 cockle 500
-scallop 3000
-mussel 64000
-oyster 2500
-haddock 10667
+scallop 500
+mussel 700
+oyster 500
+haddock 700
 mackerel 500
 octopus 500
 grouper 500
 monkfish 500
 squid 14
-halibut 8000
+halibut 500
 john dory fish 500
 john dory 500
 nohu 500
@@ -133,27 +133,27 @@ caviar 333
 rouget 500
 red snapper 500
 snapper 500
-striped bass 1000
+striped bass 500
 bass 172
-calamari 1000
+calamari 500
 green caviar 500
 rascasse fish 500
 scorpion fish 500
 red lump fish 500
 caviar 333
 catfish filet 500
-catfish 4000
+catfish 500
 fish maw 500
-cod 3000
-white fish 8334
-white fleshed fish 1000
+cod 500
+white fish 500
+white fleshed fish 500
 fish bone 500
 cuttle fish 500
 masago 271
 fish pieces 500
 fried fish 500
 trout 500
-sole 1000
+sole 500
 tripe 400
 uni 208
 red rock fish 500
@@ -162,19 +162,19 @@ mullet 500
 anchovie 125
 anchovy filet 500
 anchovy 64
-salmon 2834
+salmon 500
 gravlax fillet 500
 fillet 500
-tuna 4000
-fish 2000
+tuna 500
+fish 500
 red curry paste 375
 curry paste 500
 masamam 500
 green chile 500
 chile 94
 chillies 111
-poblano 1000
-anaheim 1333
+poblano 300
+anaheim 300
 habanero pepper 188
 habanero chili pepper 125
 dried chili peppers 125
@@ -185,7 +185,7 @@ jalapeno chile pepper 333
 adobo 125
 serrano pepper 83
 yellow wax peppers 125
-capsicum 3000
+capsicum 300
 poblanos 416
 chile pepper 111
 pimento 531
@@ -196,237 +196,237 @@ chipotle pepper 118
 chipotle 83
 chioptles 125
 pequin chile pepper 7
-red bell pepper 1333
-red peppers 1000
-bell pepper 1500
-green bell pepper 2000
-green pepper 1333
-yellow bell pepper 1000
+red bell pepper 500
+red peppers 500
+bell pepper 500
+green bell pepper 500
+green pepper 500
+yellow bell pepper 500
 yellow pepper 584
-orange bell pepper 2000
-cherry pie filling 1000
+orange bell pepper 500
+cherry pie filling 500
 cherry 444
 cherries 667
 date 562
 prune 500
-lychee 1000
+lychee 500
 muscat 571
-white seedless grape 4500
-seedless grape 3250
-white grape 1750
+white seedless grape 500
+seedless grape 500
+white grape 500
 muscatel grape 125
-red seedless grape 4000
+red seedless grape 500
 grape 500
-seedless green grape 8000
+seedless green grape 500
 blackberry 500
-blackberries 2400
+blackberries 500
 juniper berry 250
 juniper berries 167
 raspberry 375
-raspberries 2000
+raspberries 500
 strawberry 500
-strawberries 2000
+strawberries 500
 cranberry 667
 cranberries 667
 blueberry 444
-blueberries 1250
+blueberries 400
 wheat berry 500
-wheat berries 1000
+wheat berries 400
 raisin 500
-black olive 1000
+black olive 400
 olive 368
 tamarind 208
 tamarind paste 375
 currant 375
 fig 600
-melon 1333
+melon 400
 ackee 500
-hearts of palm 2084
+hearts of palm 400
 lemon 78
 yuzu 167
-chayote 24000
+chayote 700
 grapefruit 167
-plantain 1143
-cassava 1000
-calabaza 1000
-faro 8000
+plantain 600
+cassava 400
+calabaza 400
+faro 400
 pith 403
 banana 667
 crenshaw melon 500
 tangerine 125
 pomelo 500
 lime 125
-mango 1000
-peach 2000
+mango 500
+peach 500
 pineapple 500
 apple 571
 applesauce 429
 canteloupe 500
-cantaloupe 1000
+cantaloupe 500
 apricot 500
 avocado 500
 orange 83
 papaya 667
-tomatillo 4000
-roma tomato 3000
-tomato 1000
+tomatillo 500
+roma tomato 500
+tomato 500
 tomato paste 500
-tomato puree 1000
-tomato sauce 2000
-stewed tomato 5666
-crushed tomato 3500
-chopped tomato 3000
-diced tomato 4000
-spaghetti sauce 4000
-butter beans 6000
-fava bean 1000
-refried bean 1538
-bean 2000
-baked bean 16000
-garbanzo bean 1000
-garbanzo 1000
-green bean 6000
-haricot 5000
-red kidney bean 4509
-kidney bean 4509
-white kidney bean 10667
-navy bean 5333
-lima bean 5333
-pinto bean 2000
-red bean 1000
-white bean 2000
-northern bean 2000
-black bean 2000
-black soy bean 1000
-soy bean 1000
-soybean 1000
-black-eyed pea 2000
+tomato puree 500
+tomato sauce 300
+stewed tomato 400
+crushed tomato 400
+chopped tomato 400
+diced tomato 400
+spaghetti sauce 300
+butter beans 400
+fava bean 400
+refried bean 400
+bean 400
+baked bean 500
+garbanzo bean 400
+garbanzo 400
+green bean 400
+haricot 400
+red kidney bean 400
+kidney bean 400
+white kidney bean 500
+navy bean 400
+lima bean 400
+pinto bean 400
+red bean 400
+white bean 400
+northern bean 400
+black bean 400
+black soy bean 400
+soy bean 400
+soybean 400
+black-eyed pea 400
 blackeyed pea 500
-cannellini bean 8000
-chickpea 1000
-hummus 1750
+cannellini bean 400
+chickpea 400
+hummus 400
 chili bean 667
-lentil 3000
+lentil 400
 tatsoi leaves 500
-tatsoi 2000
-lettuce 4800
+tatsoi 400
+lettuce 400
 salad 500
-endive 8000
-radicchio 2750
+endive 400
+radicchio 400
 chicory 472
-escarole 8000
-romaine 6000
-spinach 4000
-red leaf lettuce 5000
-cabbage 5333
-brussels sprouts 32000
-sauerkraut 2000
-bok choy 2000
-leek 4500
+escarole 600
+romaine 600
+spinach 600
+red leaf lettuce 600
+cabbage 600
+brussels sprouts 500
+sauerkraut 500
+bok choy 500
+leek 500
 ramp 500
-green onion 1000
+green onion 500
 scallion 667
 chive 250
 red onion 750
-spanish onion 1000
-white onion 2000
-onion 1333
+spanish onion 500
+white onion 500
+onion 500
 shallot 750
-yellow onion 2000
-zucchini 1000
-cucumber 4000
+yellow onion 500
+zucchini 500
+cucumber 500
 sweet yam 500
-yam 1333
+yam 500
 pumpkin puree 636
 pumpkin 500
-squash 3000
-acorn squash 6000
-eggplant 3500
+squash 500
+acorn squash 500
+eggplant 500
 pickle 500
-spaghetti squash 12000
-corn kernel 2667
-cream-style 1500
+spaghetti squash 600
+corn kernel 300
+cream-style 300
 corn 500
-fresh corn 3500
-sweet pea 2667
-pea 1000
-fresh pea 4000
-snow pea 7000
-green pea 3000
-yellow pea 1000
-taro 1250
-potato 2000
-yukon gold 10667
-hash brown 12000
-french fries 37500
+fresh corn 300
+sweet pea 300
+pea 300
+fresh pea 300
+snow pea 300
+green pea 300
+yellow pea 300
+taro 400
+potato 550
+yukon gold 600
+hash brown 600
+french fries 600
 spicy fries 500
-potato mix 4111
-rutabaga 2000
+potato mix 250
+rutabaga 250
 solferino 500
-artichoke 1333
+artichoke 250
 baby artichoke 500
 horseradish 184
 radish 250
-daikon 1000
+daikon 250
 beet 857
-parsnip 4000
-turnip 5333
-chard 2334
-asparagus 8000
-broccoli 10667
-cauliflower 10667
-julienne 1416
+parsnip 250
+turnip 250
+chard 250
+asparagus 250
+broccoli 600
+cauliflower 600
+julienne 250
 truffle 222
-celery 2000
-celeriac 8000
-bamboo shoot 2000
-carrot 1500
+celery 250
+celeriac 250
+bamboo shoot 250
+carrot 250
 fennel 42
-mixed vegetables 8000
-vegetable blend 32000
-vegetables 7804
+mixed vegetables 300
+vegetable blend 600
+vegetables 300
 mixed garden vegetable 500
-mixed greens 16000
-greens 4000
-edamame 2000
-mahogany 1000
+mixed greens 600
+greens 400
+edamame 400
+mahogany 400
 mahoganies 500
 brunoise 125
-jicama 1000
-yucca 3000
+jicama 400
+yucca 250
 fungi 500
-shiitake mushroom 5066
-shiitake 6000
+shiitake mushroom 300
+shiitake 300
 portabella cap 500
-portobello 8000
-mushroom 5333
-morel 4000
-porcini mushroom 1333
-porcini 1333
-white mushroom 8000
-asiago 2000
-gouda 4000
-halloumi 2667
-swiss 4000
-brie 1000
-cheddar cheese 4000
-cheddar 4000
-mozzarella 2000
-cheese 2000
-queso 1166
-fontina 2834
-gruyere 4000
-monterey 4000
-stilton 1000
+portobello 300
+mushroom 300
+morel 300
+porcini mushroom 300
+porcini 300
+white mushroom 300
+asiago 250
+gouda 250
+halloumi 250
+swiss 250
+brie 250
+cheddar cheese 250
+cheddar 250
+mozzarella 250
+cheese 250
+queso 250
+fontina 250
+gruyere 250
+monterey 250
+stilton 250
 pecorino 667
-provolone 2000
-parmesan cheese 1096
-parmesan 1000
-parmigiano 1000
-romano 1000
+provolone 250
+parmesan cheese 250
+parmesan 250
+parmigiano 250
+romano 250
 mayonnaise 500
 ranch 500
-salad dressing 1000
+salad dressing 150
 butter 444
 margarine 375
 ghee 250
@@ -440,55 +440,55 @@ buttermilk 500
 coconut milk 750
 evaporated milk 667
 sour cream 667
-half-and-half 4000
+half-and-half 150
 cream 800
 crema 667
 creme 667
-half and half 4000
-half-n-half 4438
+half and half 150
+half-n-half 150
 halfandhalf 500
-whipping cream 1000
+whipping cream 600
 mascarpone 667
 yogurt 500
 gelatin 56
-tapioca 1000
+tapioca 500
 beef bouillon 333
 carbonated 333
 sprite 900
 soft drink 375
 chicken bouillon 222
 bouillon 333
-chicken broth 8000
-chicken stock 8000
-broth 8000
+chicken broth 800
+chicken stock 800
+broth 800
 soup base 500
-soup 1000
+soup 800
 condensed soup 700
-tomato soup 2000
-vegetable stock 10667
-fish stock 8000
+tomato soup 800
+vegetable stock 600
+fish stock 800
 liquid smoke 42
-stock 8000
-vegetable broth 8000
+stock 800
+vegetable broth 800
 water 500
 ice 375
-club soda 1000
-seltzer 1000
+club soda 800
+seltzer 800
 coffee 125
 green tea 62
 black tea 500
-passion fruit puree 1500
+passion fruit puree 800
 tropical puree 700
 cane syrup 500
 apple cider 333
 lemon juice 125
 lime juice 188
-white grape juice 1196
+white grape juice 800
 orange juice 250
-vegetable juice 10000
-tomato juice 4000
+vegetable juice 800
+tomato juice 800
 v-8 juice 700
-port 2000
+port 800
 scotch 500
 vinaigrette 500
 sake 500
@@ -496,13 +496,13 @@ brandy 200
 cognac 500
 whiskey 178
 whisky 250
-rum 1500
+rum 800
 grappa 125
-sparkling cider 1500
+sparkling cider 800
 pickle juice 625
 balsamic vinegar 500
-vermouth 2000
-beer 1000
+vermouth 800
+beer 800
 tequila 375
 vodka 167
 mexican lager 700
@@ -511,37 +511,37 @@ negro mordelo 700
 pernod 38
 banana liqueur 146
 melon liqueur 42
-merlot wine 2000
-red wine 2602
+merlot wine 800
+red wine 800
 red wine vinegar 500
 rice vinegar 300
 rice wine vinegar 188
-sherry 1000
+sherry 800
 vinegar 222
 white vinegar 67
 schnapps 125
-white wine 2000
-wine 2000
-ale 1500
+white wine 800
+wine 800
+ale 800
 bourbon 167
 kentucky bourbon 700
 vinegar 222
-hard cider 3000
+hard cider 800
 gin 62
-gravy 1000
+gravy 500
 browning sauce 83
-brown sauce 1000
+brown sauce 500
 minestrone 800
-mushroom soup 2000
+mushroom soup 800
 onion soup 500
 chili 167
-stew 4000
-cream of chicken 1000
+stew 800
+cream of chicken 800
 olive oil 333
-duck fat 1600
+duck fat 250
 white truffle oil 222
 lard 250
-roux 1000
+roux 250
 foie gras 500
 shortening 250
 vegetable oil 300
@@ -556,41 +556,41 @@ chili paste 167
 chile paste 62
 sesame paste 584
 chipotle paste 167
-stir-fry sauce 3000
+stir-fry sauce 250
 tahini 388
 smoked sweet mole 500
 barbeque sauce 500
 bar-b-que sauce 400
-barbecue sauce 1000
+barbecue sauce 250
 bbq sauce 500
 annato seed paste 500
 anchovy paste 83
 chile sauce 188
 hot sauce 111
-picante sauce 1000
+picante sauce 250
 sriracha sauce 205
 mexican sauce 250
 tabasco 64
 green sauce 250
 sriracha 140
 rouille 250
-enchilada sauce 8000
+enchilada sauce 250
 taco sauce 666
-ketchup 1000
+ketchup 250
 cocktail sauce 438
-mango chutney 2000
+mango chutney 250
 ranch dressing 500
 sloppy joe sauce 250
 soy sauce 500
 fish sauce 250
 hoisin sauce 750
-teriyaki sauce 1000
+teriyaki sauce 250
 puttanesca sauce 250
 steak sauce 500
 pesto 500
-marinara 2667
+marinara 250
 wasabi 62
-salsa 2000
+salsa 250
 worcestershire 222
 yellow mustard 188
 dijon mustard 333
@@ -598,7 +598,7 @@ dry mustard 62
 mustard 167
 vanilla 16
 mirin 310
-guacamole 1500
+guacamole 300
 baking cocoa 250
 unsweetened cocoa 250
 cacao 500
@@ -608,7 +608,7 @@ brown sugar 500
 granulated sugar 444
 peen tong 250
 hot chocolate mix 250
-orzo 6000
+orzo 300
 white sugar 500
 sugar 500
 glucose 219
@@ -624,16 +624,16 @@ honey 167
 molasses 167
 chocolate syrup 250
 maple syrup 333
-celery 2000
+celery 250
 salt 10
 sea salt 10
 fleur de sel 14
 salt and pepper 250
-salt and freshly ground black pepper 1000
+salt and freshly ground black pepper 25
 pepper 28
 black pepper 28
 meat tenderizer 62
-sorrel 8000
+sorrel 250
 mixed spice 21
 epazote 500
 achiote 42
@@ -654,9 +654,9 @@ fresh parsley 500
 parsley 500
 lovage 625
 chervil 250
-barley 1000
-baby arugula 3166
-arugula 3000
+barley 250
+baby arugula 250
+arugula 250
 lemon grass 500
 herbs de provence 167
 herbs 167
@@ -725,33 +725,33 @@ fresh curry 31
 food coloring 36
 cooking spray 250
 alder wood -1
-stuffing 8000
-cracker 4000
-crouton 6000
-croute 24000
-panini 1500
-brioche 3916
-baguette 4000
-pie crust 1000
-crust 1000
-ciabatta 12007
+stuffing 250
+cracker 250
+crouton 250
+croute 600
+panini 250
+brioche 250
+baguette 250
+pie crust 250
+crust 250
+ciabatta 600
 pretzel 873
-pita chips 8000
+pita chips 250
 pita 303
-roll 1000
+roll 400
 sourdough 500
-bread 1000
+bread 400
 toast 500
-french bread 16000
-tortilla 2000
-bun 2000
-cornbread 6000
-biscuit 3000
-muffin mix 1111
-cake mix 1312
-brownie mix 584
-pancake mix 1500
-waffle mix 9000
+french bread 600
+tortilla 400
+bun 400
+cornbread 400
+biscuit 400
+muffin mix 1000
+cake mix 1000
+brownie mix 1000
+pancake mix 1000
+waffle mix 1000
 cornmeal 1000
 polenta 1000
 bulgur wheat 666
@@ -774,50 +774,50 @@ arrowroot flour 1000
 rice flour 1000
 semolina 1000
 chips 667
-grits 3200
-bread crumb 2000
+grits 1000
+bread crumb 1000
 cereal 1000
-okra 5333
-tortilla chip 5000
-vegetable protein 3000
+okra 500
+tortilla chip 600
+vegetable protein 600
 ascorbic acid 8
-corn chip 4000
-jasmine rice 2667
-rice 1000
-brown rice 1000
-white rice 3000
-uncooked rice 4000
-oats 1000
-quinoa 1000
+corn chip 500
+jasmine rice 500
+rice 500
+brown rice 500
+white rice 500
+uncooked rice 500
+oats 600
+quinoa 600
 trahana 500
 madaleine 500
 yam noodles 500
 cellophane noodles 500
 yaki-soba 500
-udon noodle 2000
-egg noodles 19334
+udon noodle 600
+egg noodles 600
 wanton wrapper 500
 nori 167
 konbu 250
-couscous 8000
-fettuccine 24000
-penne 16000
-linguini 16000
-spaghetti 4000
-fregola 4000
-vermicelli 4000
+couscous 600
+fettuccine 600
+penne 600
+linguini 800
+spaghetti 600
+fregola 600
+vermicelli 600
 ditalini pasta 500
-tortellini 16000
+tortellini 800
 seaweed 375
 kombu 812
 kelp 62
-angel hair 7000
-macaroni 12000
-pasta 10000
-pastina 1500
-fettucine 21333
-rivel 2000
-noodle 16000
+angel hair 600
+macaroni 800
+pasta 800
+pastina 600
+fettucine 800
+rivel 600
+noodle 800
 fennel seed 42
 sesame seed 188
 caraway seed 42
@@ -829,7 +829,7 @@ pine nut 422
 pignoli 500
 peanut 500
 roasted peanut 500
-chestnut 1000
+chestnut 250
 macadamia nut 500
 hazelnut 500
 walnut 500

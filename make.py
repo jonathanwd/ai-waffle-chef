@@ -54,6 +54,11 @@ def cook(inspiration, model, all_recipes):
             #print("no")
     return new_ingredients
 
+def select(new_ingredients):
+    number = 5
+    number = min(number, len(new_ingredients))
+    return random.sample(new_ingredients, number)
+
 #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 model = gensim.models.KeyedVectors.load_word2vec_format('J:\ML\GoogleNews-vectors-negative300.bin', binary=True)
 f = open('data/layer1.json', 'r')
@@ -74,13 +79,14 @@ while True:
     recipe = recipeClass()
     initial_ingredients = generate_recipe()
     new_ingredients = cook(inspiration, model, all_recipies)
+    selected_ingredients = select(new_ingredients)
     print("")
     print(inspiration + " waffle recipe")
     print("---------------------------------------")
     for i in initial_ingredients:
         i.multiply(multiplier)
         recipe.add_ingredient(i)
-    for i in new_ingredients:
+    for i in selected_ingredients:
         i.multiply(multiplier)
         recipe.add_ingredient(i)
     recipe.update_amounts()

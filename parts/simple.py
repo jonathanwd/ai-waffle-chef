@@ -25,15 +25,20 @@ class recipeClass:
         for i in range(len(ingredient.get_class())):
             i_class = ingredient.get_class()[i]
             if i_class in self.flour_options:
+                self.flour.clear()
                 self.flour.append(ingredient)
             elif i_class in self.dry_options:
-                self.dry.append(ingredient)
+                if ingredient not in self.dry:
+                    self.dry.append(ingredient)
             elif i_class in self.wet_options:
-                self.wet.append(ingredient)
+                if ingredient not in self.wet:
+                    self.wet.append(ingredient)
             elif i_class in self.mix_options:
-                self.mix.append(ingredient)
+                if ingredient not in self.mix:
+                    self.mix.append(ingredient)
             elif i_class in self.toppings_options:
-                self.toppings.append(ingredient)
+                if ingredient not in self.toppings:
+                    self.toppings.append(ingredient)
             # print(i_class)
     def print_recipe(self):
         dry = "In a large bowl mix the " + ', '.join([i.get_name() for i in self.flour]) + ', ' + ', '.join([self.dry[i].get_name() for i in range(len(self.dry) - 1)]) + ', and ' + self.dry[-1].get_name() + '.\n'
