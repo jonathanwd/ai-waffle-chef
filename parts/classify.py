@@ -29,5 +29,3 @@ def classify(ingredient):
         to_return = to_return.split(', ')
         print(to_return)
     return(to_return)
-
-classify('milk')

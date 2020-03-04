@@ -2,6 +2,7 @@ from parts.simple import generate_recipe, ingredientClass, recipeClass
 from parts.classify import classify
 from parts.w2vChef import ingredientIdeas, wordcheck
 from parts.amount import get_amount
+from parts.parings import pair
 import gensim
 import json
 import sys
@@ -19,7 +20,8 @@ def cook(inspiration, model, all_recipes):
     meal_ideas = ingredientIdeas(model, [inspiration, "meal"], [])
     bake_ideas = ingredientIdeas(model, [inspiration, "bake"], [])
     spice_ideas = ingredientIdeas(model, [inspiration, "spice"], [])
-    ideas = flour_ideas + butter_ideas + sugar_ideas + ingredient_ideas + meal_ideas + bake_ideas + spice_ideas
+    topping_ideas = ingredientIdeas(model, [inspiration, "topping"], [])
+    ideas = flour_ideas + butter_ideas + sugar_ideas + ingredient_ideas + meal_ideas + bake_ideas + spice_ideas + topping_ideas
     ideas = set(ideas)
     # ideas = ingredientIdeas(model, [inspiration, additional_keywd], [])
     possibilities = []
@@ -55,9 +57,28 @@ def cook(inspiration, model, all_recipes):
     return new_ingredients
 
 def select(new_ingredients):
-    number = 5
+    number = 3
     number = min(number, len(new_ingredients))
-    return random.sample(new_ingredients, number)
+    randos = random.sample(new_ingredients, number)
+    suggestions = []
+    for rando in randos:
+        ideas = pair(rando.get_name())
+        random.shuffle(ideas)
+        for idea in ideas:
+            classed = classify(idea)
+            if not classed: 
+                classed = classify(idea + "s")
+            if not classed:
+                classed = classify(idea[:-1])
+            if classed:
+                a = int(get_amount(idea))
+                if a > 0:
+                    new_ingredient = ingredientClass()
+                    new_ingredient.define_me(idea, a, classed)
+                    suggestions.append(new_ingredient)
+                    break
+    return(randos + suggestions)
+    # http://www.ingredientpairings.com/
 
 #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 model = gensim.models.KeyedVectors.load_word2vec_format('J:\ML\GoogleNews-vectors-negative300.bin', binary=True)
