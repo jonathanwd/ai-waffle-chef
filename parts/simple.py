@@ -12,9 +12,9 @@ class recipeClass:
         self.mix = []
         self.toppings = []
         self.flour_options = ['Flour','Mixes']
-        self.dry_options = ['Spices', 'Dry', 'Salt and Pepper', 'Corn and Wheat', 'Chips, Crumbs, and Grits', 'Rice', 'Other Grain', 'Pasta', 'Seeds']
+        self.dry_options = ['Spices', 'Dry', 'Salt and Pepper', 'Corn and Wheat', 'Chips, Crumbs, and Grits', 'Rice', 'Other Grain', 'Seeds'] # 'Pasta' is out
         self.wet_options = ['Creams and Eggs', 'Wet', 'Sauces', 'Liquids', 'Grease and Fat', 'Nut butter', 'Chilies']
-        self.mix_options = ['Meats', 'Fruits', 'Vegetables', 'Cheese', 'Mix', 'Nut', 'Bread', 'Weird Spices']
+        self.mix_options = ['Fruits', 'Vegetables', 'Cheese', 'Mix', 'Nut', 'Weird Spices'] # 'Bread' has been removed as a category. Also 'Meats' temporarily so I can make vegetarian ones.
         self.toppings_options = []
         self.flour_dry_low = 50
         self.wet_dry_low = 50

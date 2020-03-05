@@ -57,28 +57,28 @@ def cook(inspiration, model, all_recipes):
     return new_ingredients
 
 def select(new_ingredients):
-    number = 3
+    number = 5
     number = min(number, len(new_ingredients))
     randos = random.sample(new_ingredients, number)
-    suggestions = []
-    for rando in randos:
-        ideas = pair(rando.get_name())
-        random.shuffle(ideas)
-        for idea in ideas:
-            classed = classify(idea)
-            if not classed: 
-                classed = classify(idea + "s")
-            if not classed:
-                classed = classify(idea[:-1])
-            if classed:
-                a = int(get_amount(idea))
-                if a > 0:
-                    new_ingredient = ingredientClass()
-                    new_ingredient.define_me(idea, a, classed)
-                    suggestions.append(new_ingredient)
-                    break
-    return(randos + suggestions)
-    # http://www.ingredientpairings.com/
+    return(randos)
+    # suggestions = []
+    # for rando in randos:
+    #     ideas = pair(rando.get_name())
+    #     random.shuffle(ideas)
+    #     for idea in ideas:
+    #         classed = classify(idea)
+    #         if not classed: 
+    #             classed = classify(idea + "s")
+    #         if not classed:
+    #             classed = classify(idea[:-1])
+    #         if classed:
+    #             a = int(get_amount(idea))
+    #             if a > 0:
+    #                 new_ingredient = ingredientClass()
+    #                 new_ingredient.define_me(idea, a, classed)
+    #                 suggestions.append(new_ingredient)
+    #                 break
+    # return(randos + suggestions)
 
 #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 model = gensim.models.KeyedVectors.load_word2vec_format('J:\ML\GoogleNews-vectors-negative300.bin', binary=True)
@@ -86,7 +86,7 @@ f = open('data/layer1.json', 'r')
 all_recipies = f.read().splitlines()
 f.close()
 
-cups = 8
+cups = 4
 multiplier = cups / 2.3
 while True:
     print("What kinds of waffle would you like to eat?")
