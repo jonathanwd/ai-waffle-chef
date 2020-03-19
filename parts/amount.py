@@ -84,7 +84,7 @@ def get_amount(item):
                 return split[1]
     return -1
 
-f = open('data/layer1.json', 'r')
-all_recipies = f.read().splitlines()
-f.close()
-add_amounts('flour', all_recipies)
+# f = open('data/layer1.json', 'r')
+# all_recipies = f.read().splitlines()
+# f.close()
+# add_amounts('flour', all_recipies)

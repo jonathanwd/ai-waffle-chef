@@ -81,7 +81,7 @@ def select(new_ingredients):
     # return(randos + suggestions)
 
 #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
-model = gensim.models.KeyedVectors.load_word2vec_format('J:\ML\GoogleNews-vectors-negative300.bin', binary=True)
+model = gensim.models.KeyedVectors.load_word2vec_format('data/GoogleNews-vectors-negative300.bin', binary=True)
 f = open('data/layer1.json', 'r')
 all_recipies = f.read().splitlines()
 f.close()
