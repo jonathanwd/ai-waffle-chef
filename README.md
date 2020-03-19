@@ -6,7 +6,7 @@ Clone the package and create a new Python 3.6 environment.
 You'll have to use 64-bit Python for Word2Vec to work properly.
 Install the required python packages with `pip install -r requirements.txt`.
 
-## Word2Vect Model
+## Word2Vec Model
 We used Google's pretrained Word2Vec model.
 It has a vocabulary of 3 million words and was trained on about 100 billion words from a Google News dataset.
 Download Google's pretrained model [here](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/) or use your own Word2Vec model.
