@@ -22,5 +22,3 @@ The file `data/amount.txt` helps the chef determine how much of an ingredient sh
 The number associated with each ingredient is a representation of the ratio of that ingredient with one cup of flour.
 1000 represents one cup of the ingredient, so if ingredient X has a score of 500, that means for every cup of flour, there should be about half a cup of ingredient X.
 The amounts are a work in progress, so feel free to modify the file according to your needs.
-
-TODO: https://www.tensorflow.org/datasets/catalog/food101
