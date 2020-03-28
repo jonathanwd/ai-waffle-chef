@@ -36,3 +36,4 @@ smart-open==1.10.0
 soupsieve==2.0
 urllib3==1.25.8
 zipp==3.1.0
+scikit-learn==0.21.3
