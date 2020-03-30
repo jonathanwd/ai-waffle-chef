@@ -1,7 +1,7 @@
 import joblib
 import numpy as np
 
-from simple import recipeClass
+from parts.simple import recipeClass
 
 
 # load the model from disk

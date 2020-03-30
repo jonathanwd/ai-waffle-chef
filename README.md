@@ -5,6 +5,7 @@ This friendly AI chef will create brand new waffle recipes based on user input.
 Clone the package and create a new Python 3.6 environment.
 You'll have to use 64-bit Python for Word2Vec to work properly.
 Install the required python packages with `pip install -r requirements.txt`.
+Run the model with `python make.py`.
 
 ## Word2Vec Model
 We used Google's pretrained Word2Vec model.

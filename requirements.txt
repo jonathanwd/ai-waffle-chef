@@ -18,6 +18,7 @@ idna==2.9
 importlib-metadata==1.5.0
 inflect==4.1.0
 jmespath==0.9.5
+joblib==0.14.1
 num2words==0.5.10
 numpy==1.18.2
 Pint==0.11
@@ -30,10 +31,11 @@ quantulum3==0.7.3
 requests==2.23.0
 rsa==4.0
 s3transfer==0.3.3
+scikit-learn==0.22.2.post1
 scipy==1.4.1
 six==1.14.0
+sklearn==0.0
 smart-open==1.10.0
 soupsieve==2.0
 urllib3==1.25.8
 zipp==3.1.0
-scikit-learn==0.21.3
