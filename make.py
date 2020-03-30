@@ -9,7 +9,7 @@ import sys
 import random
 import logging
 
-def cook(inspiration, model, all_recipes):
+def cook(inspiration, model):
     new_ingredients = []
     print("You want me to make a " + inspiration + " waffle?")
     # additional_keywd = random.choice(["butter","meal","bake", "ingredients", "flour"])
@@ -81,10 +81,11 @@ def select(new_ingredients):
     # return(randos + suggestions)
 
 #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
-model = gensim.models.KeyedVectors.load_word2vec_format('data/GoogleNews-vectors-negative300.bin', binary=True)
-f = open('data/layer1.json', 'r')
-all_recipies = f.read().splitlines()
-f.close()
+# model = gensim.models.KeyedVectors.load_word2vec_format('data/GoogleNews-vectors-negative300.bin', binary=True)
+model = gensim.models.KeyedVectors.load_word2vec_format('data/GoogleNews-vectors-negative300.bin', limit=1600000, binary=True)
+# f = open('data/layer1.json', 'r')
+# all_recipes = f.read().splitlines()
+# f.close()
 
 cups = 4
 multiplier = cups / 2.3
@@ -99,7 +100,7 @@ while True:
             break
     recipe = recipeClass()
     initial_ingredients = generate_recipe()
-    new_ingredients = cook(inspiration, model, all_recipies)
+    new_ingredients = cook(inspiration, model)
     selected_ingredients = select(new_ingredients)
     print("")
     print(inspiration + " waffle recipe")
