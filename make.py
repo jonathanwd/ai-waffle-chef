@@ -3,6 +3,7 @@ from parts.classify import classify
 from parts.w2vChef import ingredientIdeas, wordcheck
 from parts.amount import get_amount
 from parts.parings import pair
+from parts.evaluators import waffleness_estimator
 import gensim
 import json
 import sys
@@ -116,4 +117,6 @@ while True:
     print('')
     print(recipe.print_recipe())
     print("---------------------------------------")
-    
+
+    isWaffle = 'Yes' if waffleness_estimator(R=recipe) else 'No'
+    print('Is this a waffle recipe? {}.'.format(isWaffle))
