@@ -4,6 +4,7 @@ from parts.w2vChef import ingredientIdeas, wordcheck
 from parts.amount import get_amount
 from parts.parings import pair
 from parts.evaluators import waffleness_estimator
+from parts.surprise import surprise_score
 import gensim
 import json
 import sys
@@ -103,8 +104,13 @@ while True:
     initial_ingredients = generate_recipe()
     new_ingredients = cook(inspiration, model)
     selected_ingredients = select(new_ingredients)
+    ingredient_strings = []
+    for ingredient in selected_ingredients:
+        ingredient_strings.extend(ingredient.get_name().split())
+    score = surprise_score(ingredient_strings)
     print("")
     print(inspiration + " waffle recipe")
+    print("Surprise score:" + str(round(score * 100, 1)))
     print("---------------------------------------")
     for i in initial_ingredients:
         i.multiply(multiplier)
