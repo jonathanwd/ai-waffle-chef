@@ -5,11 +5,16 @@ from parts.amount import get_amount
 from parts.parings import pair
 from parts.evaluators import waffleness_estimator
 from parts.surprise import surprise_score
+from parts.food_pair_probability import pair_score
 import gensim
 import json
 import sys
 import random
 import logging
+import itertools
+import copy
+
+DEBUG = False
 
 def cook(inspiration, model):
     new_ingredients = []
@@ -36,9 +41,9 @@ def cook(inspiration, model):
                 possibilities.append(pieces[0])
             if pieces[1] not in possibilities:
                 possibilities.append(pieces[1])
-        print(idea)
+        if DEBUG:print(idea)
     possibilities = set(possibilities)
-    print(possibilities)
+    if DEBUG:print(possibilities)
     for possibility in possibilities:
         classed = classify(possibility)
         if not classed: 
@@ -48,8 +53,8 @@ def cook(inspiration, model):
         if classed:
             a = int(get_amount(possibility))
             if a > 0:
-                print(classed)
-                print(possibility)
+                if DEBUG:print(classed)
+                if DEBUG:print(possibility)
                 new_ingredient = ingredientClass()
                 new_ingredient.define_me(possibility, a, classed)
                 new_ingredients.append(new_ingredient)
@@ -82,6 +87,21 @@ def select(new_ingredients):
     #                 break
     # return(randos + suggestions)
 
+def select_all_possible_pair(new_ingredients):
+    result = []
+    upper_limit = min(6, len(new_ingredients))
+    for n in range(5,upper_limit):
+        for conb in itertools.combinations(new_ingredients, n):
+            temp_list = []
+            for c in conb:
+                temp = copy.copy(c)
+                temp_list.append(temp)
+            result.append(temp_list)
+            del temp_list
+    print("Number of inspired additional ingredient:        " + str(len(new_ingredients)))
+    print("Number of possible combination of recipes:       " + str(len(result)))
+    return result
+
 #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 # model = gensim.models.KeyedVectors.load_word2vec_format('data/GoogleNews-vectors-negative300.bin', binary=True)
 model = gensim.models.KeyedVectors.load_word2vec_format('data/GoogleNews-vectors-negative300.bin', limit=1600000, binary=True)
@@ -100,29 +120,37 @@ while True:
             sys.exit()
         if wordcheck(model,inspiration):
             break
-    recipe = recipeClass()
-    initial_ingredients = generate_recipe()
     new_ingredients = cook(inspiration, model)
-    selected_ingredients = select(new_ingredients)
-    ingredient_strings = []
-    for ingredient in selected_ingredients:
-        ingredient_strings.extend(ingredient.get_name().split())
-    score = surprise_score(ingredient_strings)
-    print("")
-    print(inspiration + " waffle recipe")
-    print("Surprise score:" + str(round(score * 100, 1)))
-    print("---------------------------------------")
-    for i in initial_ingredients:
-        i.multiply(multiplier)
-        recipe.add_ingredient(i)
-    for i in selected_ingredients:
-        i.multiply(multiplier)
-        recipe.add_ingredient(i)
-    recipe.update_amounts()
-    recipe.print_ingredients()
-    print('')
-    print(recipe.print_recipe())
-    print("---------------------------------------")
+    #selected_ingredients = select(new_ingredients)
+    list_of_selected_ingredients = select_all_possible_pair(new_ingredients)
+    for selected_ingredients in list_of_selected_ingredients:
+        initial_ingredients = generate_recipe()
+        ingredient_strings = []
+        for ingredient in selected_ingredients:
+            ingredient_strings.extend(ingredient.get_name().split())
+        score = surprise_score(ingredient_strings)
+        p_score = pair_score(initial_ingredients + selected_ingredients)
 
-    isWaffle = 'Yes' if waffleness_estimator(R=recipe) else 'No'
-    print('Is this a waffle recipe? {}.'.format(isWaffle))
+        recipe = recipeClass()
+        for i in initial_ingredients:
+            i.multiply(multiplier)
+            recipe.add_ingredient(i)
+        for i in selected_ingredients:
+            i.multiply(multiplier)
+            recipe.add_ingredient(i)
+        recipe.update_amounts()
+
+        print("")
+        print("///////////////////////////////////////")
+        print(inspiration + " waffle recipe")
+        print("///////////////////////////////////////")
+        print("Surprise score:" + str(round(score * 100, 1)))
+        print("Food Pair score:" + str(round(p_score, 1)))
+        isWaffle = 'Yes' if waffleness_estimator(R=recipe) else 'No'
+        print('Is this a waffle recipe? {}.'.format(isWaffle))
+        print("---------------------------------------")
+        recipe.print_ingredients()
+        print('')
+        print(recipe.print_recipe())
+        del initial_ingredients
+        del recipe
