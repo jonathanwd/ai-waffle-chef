@@ -19,7 +19,7 @@ The model takes over 7GB of memory to load the full model.
 Using `limit=1800000` will cut the memory requirements by about half.
 
 ### amount.txt
-The file `data/amount.txt` helps the chef determine how much of an ingredient should be added to a recipe.
+The file `data/amount.txt` helps the AI chef determine how much of an ingredient should be added to a recipe.
 The number associated with each ingredient is a representation of the ratio of that ingredient with one cup of flour.
 1000 represents one cup of the ingredient, so if ingredient X has a score of 500, that means for every cup of flour, there should be about half a cup of ingredient X.
 The amounts are a work in progress, so feel free to modify the file according to your needs.

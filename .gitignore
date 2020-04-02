@@ -3,3 +3,4 @@ data/layer1original.json
 parts/__pycache__/
 env/
 data/GoogleNews*
+.vscode
