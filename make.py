@@ -109,6 +109,10 @@ model = gensim.models.KeyedVectors.load_word2vec_format('data/GoogleNews-vectors
 # all_recipes = f.read().splitlines()
 # f.close()
 
+surprise_rating = 9 
+foodpair_rating = 5
+surprise_percentiles = [0.412, 0.490, 0.512, 0.528, 0.545, 0.565, 0.580, 0.601, 0.624, 0.654, 0.748]
+foodpair_percentiles = [11.0, 15.4, 16.8, 17.6, 18.3, 19.0, 19.8, 20.7, 21.7, 23.1, 27.1]
 cups = 4
 multiplier = cups / 2.3
 while True:
@@ -140,17 +144,18 @@ while True:
             recipe.add_ingredient(i)
         recipe.update_amounts()
 
-        print("")
-        print("///////////////////////////////////////")
-        print(inspiration + " waffle recipe")
-        print("///////////////////////////////////////")
-        print("Surprise score:" + str(round(score * 100, 1)))
-        print("Food Pair score:" + str(round(p_score, 1)))
-        isWaffle = 'Yes' if waffleness_estimator(R=recipe) else 'No'
-        print('Is this a waffle recipe? {}.'.format(isWaffle))
-        print("---------------------------------------")
-        recipe.print_ingredients()
-        print('')
-        print(recipe.print_recipe())
-        del initial_ingredients
-        del recipe
+        if(score > surprise_percentiles[surprise_rating] and p_score > foodpair_percentiles[foodpair_rating]):
+            print("")
+            print("///////////////////////////////////////")
+            print(inspiration + " waffle recipe")
+            print("///////////////////////////////////////")
+            print("Surprise score:" + str(round(score * 100, 1)))
+            print("Food Pair score:" + str(round(p_score, 1)))
+            isWaffle = 'Yes' if waffleness_estimator(R=recipe) else 'No'
+            print('Is this a waffle recipe? {}.'.format(isWaffle))
+            print("---------------------------------------")
+            recipe.print_ingredients()
+            print('')
+            print(recipe.print_recipe())
+            del initial_ingredients
+            del recipe
