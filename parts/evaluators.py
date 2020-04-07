@@ -20,9 +20,15 @@ def get_waffleness(R: recipeClass, model=waffleness_pca):
                 return i
         return "unselected"
 
-    ingredients = R.flour + R.dry + R.wet + R.mix + R.toppings
+    ingredients = R.dry + R.wet + R.mix + R.toppings
 
     features = np.zeros(n_selected_ingredients, dtype=np.float)
+
+    for ingr in R.flour:
+        _name = 'flour'
+        _amount = ingr.amount
+        idx = selected_ingredients.index(_name)
+        features[idx] += _amount
 
     for ingr in ingredients:
 
@@ -35,6 +41,8 @@ def get_waffleness(R: recipeClass, model=waffleness_pca):
             idx = selected_ingredients.index(_name)
             features[idx] += _amount
 
+    if features[0] == 0:
+        return -1
     features /= features[0]
 
     X = np.expand_dims(features, axis=0)
