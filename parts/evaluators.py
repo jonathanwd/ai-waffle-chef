@@ -41,9 +41,9 @@ def get_waffleness(R: recipeClass, model=waffleness_pca):
             idx = selected_ingredients.index(_name)
             features[idx] += _amount
 
-    features /= features[0]
-    if np.isnan(features.sum()):
+    if features[0] == 0:
         return -1
+    features /= features[0]
 
     X = np.expand_dims(features, axis=0)
     score = model.score(X)
