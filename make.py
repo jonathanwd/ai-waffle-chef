@@ -102,28 +102,28 @@ def select_all_possible_pair(new_ingredients):
     print("Number of possible combination of recipes:       " + str(len(result)))
     return result
 
-#logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
-# model = gensim.models.KeyedVectors.load_word2vec_format('data/GoogleNews-vectors-negative300.bin', binary=True)
-model = gensim.models.KeyedVectors.load_word2vec_format('data/GoogleNews-vectors-negative300.bin', limit=1600000, binary=True)
-# f = open('data/layer1.json', 'r')
-# all_recipes = f.read().splitlines()
-# f.close()
+def surprise_score_to_percentile(score):
+    surprise_percentiles = [0.490, 0.512, 0.528, 0.545, 0.565, 0.580, 0.601, 0.624, 0.654, 0.748]
+    for i in range(len(surprise_percentiles)):
+        if score < surprise_percentiles[i]:
+            return i
+    return 9
 
-surprise_rating = 9 
-foodpair_rating = 5
-surprise_percentiles = [0.412, 0.490, 0.512, 0.528, 0.545, 0.565, 0.580, 0.601, 0.624, 0.654, 0.748]
-foodpair_percentiles = [11.0, 15.4, 16.8, 17.6, 18.3, 19.0, 19.8, 20.7, 21.7, 23.1, 27.1]
-cups = 4
-multiplier = cups / 2.3
-while True:
-    print("What kinds of waffle would you like to eat?")
-    while True:
-        inspiration = input(">> ")
-        if inspiration.lower() == "no":
-            print("OK, see you!")
-            sys.exit()
-        if wordcheck(model,inspiration):
-            break
+def foodpair_score_to_percentile(score):
+    foodpair_percentiles = [15.4, 16.8, 17.6, 18.3, 19.0, 19.8, 20.7, 21.7, 23.1, 27.1]
+    for i in range(len(surprise_percentiles)):
+        if score < surprise_percentiles[i]:
+            return i
+    return 9
+
+# surprise_percentiles = [0.412, 0.490, 0.512, 0.528, 0.545, 0.565, 0.580, 0.601, 0.624, 0.654, 0.748]
+# foodpair_percentiles = [11.0, 15.4, 16.8, 17.6, 18.3, 19.0, 19.8, 20.7, 21.7, 23.1, 27.1]
+def one_recipe(model, surprise, foodpair, people, inspiration):
+    if not wordcheck(model,inspiration):
+        raise Exception("Error: " + inspiration + ' was not found in the model. Please try again.')
+    surprise_rating = int((surprise-1)/10)
+    foodpair_rating = int((foodpair-1)/10)
+    multiplier = people / 2
     new_ingredients = cook(inspiration, model)
     #selected_ingredients = select(new_ingredients)
     list_of_selected_ingredients = select_all_possible_pair(new_ingredients)
@@ -144,7 +144,7 @@ while True:
             recipe.add_ingredient(i)
         recipe.update_amounts()
 
-        if(score > surprise_percentiles[surprise_rating] and p_score > foodpair_percentiles[foodpair_rating]):
+        if(surprise_score_to_percentile(score) == surprise_rating): # and foodpair_score_to_percentile(p_score) == foodpair_rating
             print("")
             print("///////////////////////////////////////")
             print(inspiration + " waffle recipe")
@@ -157,5 +157,65 @@ while True:
             recipe.print_ingredients()
             print('')
             print(recipe.print_recipe())
-            del initial_ingredients
-            del recipe
+            return recipe
+
+
+def create(model, surprise, foodpair, people):
+    #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
+    surprise_percentiles = [0.412, 0.490, 0.512, 0.528, 0.545, 0.565, 0.580, 0.601, 0.624, 0.654, 0.748]
+    foodpair_percentiles = [11.0, 15.4, 16.8, 17.6, 18.3, 19.0, 19.8, 20.7, 21.7, 23.1, 27.1]
+    surprise_rating = int(surprise/10)
+    foodpair_rating = int(foodpair/10)
+    multiplier = people / 3
+    while True:
+        print("What kinds of waffle would you like to eat?")
+        while True:
+            inspiration = input(">> ")
+            if inspiration.lower() == "no":
+                print("OK, see you!")
+                sys.exit()
+            if wordcheck(model,inspiration):
+                break
+        new_ingredients = cook(inspiration, model)
+        #selected_ingredients = select(new_ingredients)
+        list_of_selected_ingredients = select_all_possible_pair(new_ingredients)
+        for selected_ingredients in list_of_selected_ingredients:
+            initial_ingredients = generate_recipe()
+            ingredient_strings = []
+            for ingredient in selected_ingredients:
+                ingredient_strings.extend(ingredient.get_name().split())
+            score = surprise_score(ingredient_strings)
+            p_score = pair_score(initial_ingredients + selected_ingredients)
+
+            recipe = recipeClass()
+            for i in initial_ingredients:
+                i.multiply(multiplier)
+                recipe.add_ingredient(i)
+            for i in selected_ingredients:
+                i.multiply(multiplier)
+                recipe.add_ingredient(i)
+            recipe.update_amounts()
+
+            if(score > surprise_percentiles[surprise_rating] and p_score > foodpair_percentiles[foodpair_rating]):
+                print("")
+                print("///////////////////////////////////////")
+                print(inspiration + " waffle recipe")
+                print("///////////////////////////////////////")
+                print("Surprise score:" + str(round(score * 100, 1)))
+                print("Food Pair score:" + str(round(p_score, 1)))
+                isWaffle = 'Yes' if waffleness_estimator(R=recipe) else 'No'
+                print('Is this a waffle recipe? {}.'.format(isWaffle))
+                print("---------------------------------------")
+                recipe.print_ingredients()
+                print('')
+                print(recipe.print_recipe())
+                del initial_ingredients
+                del recipe
+
+# # Uncomment this section to run without the GUI
+# # model = gensim.models.KeyedVectors.load_word2vec_format('data/GoogleNews-vectors-negative300.bin', binary=True)
+# model = gensim.models.KeyedVectors.load_word2vec_format('data/GoogleNews-vectors-negative300.bin', limit=1600000, binary=True)
+# surprise = 90 
+# foodpair = 50
+# people = 3
+# create(model, surprise, foodpair, people)
