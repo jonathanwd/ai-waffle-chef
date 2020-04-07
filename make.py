@@ -6,6 +6,7 @@ from parts.parings import pair
 from parts.evaluators import waffleness_estimator
 from parts.surprise import surprise_score
 from parts.food_pair_probability import pair_score
+from random import randint
 import gensim
 import json
 import sys
@@ -111,8 +112,8 @@ def surprise_score_to_percentile(score):
 
 def foodpair_score_to_percentile(score):
     foodpair_percentiles = [15.4, 16.8, 17.6, 18.3, 19.0, 19.8, 20.7, 21.7, 23.1, 27.1]
-    for i in range(len(surprise_percentiles)):
-        if score < surprise_percentiles[i]:
+    for i in range(len(foodpair_percentiles)):
+        if score < foodpair_percentiles[i]:
             return i
     return 9
 
@@ -127,7 +128,12 @@ def one_recipe(model, surprise, foodpair, people, inspiration):
     new_ingredients = cook(inspiration, model)
     #selected_ingredients = select(new_ingredients)
     list_of_selected_ingredients = select_all_possible_pair(new_ingredients)
-    for selected_ingredients in list_of_selected_ingredients:
+    count = len(list_of_selected_ingredients)
+    random_location = randint(0, count-1)
+    location = random_location
+    # loop through all recipes starting at random location
+    while True:  
+        selected_ingredients = list_of_selected_ingredients[location]
         initial_ingredients = generate_recipe()
         ingredient_strings = []
         for ingredient in selected_ingredients:
@@ -144,7 +150,7 @@ def one_recipe(model, surprise, foodpair, people, inspiration):
             recipe.add_ingredient(i)
         recipe.update_amounts()
 
-        if(surprise_score_to_percentile(score) == surprise_rating): # and foodpair_score_to_percentile(p_score) == foodpair_rating
+        if surprise_score_to_percentile(score) == surprise_rating and foodpair_score_to_percentile(p_score) >= foodpair_rating:
             print("")
             print("///////////////////////////////////////")
             print(inspiration + " waffle recipe")
@@ -158,7 +164,11 @@ def one_recipe(model, surprise, foodpair, people, inspiration):
             print('')
             print(recipe.print_recipe())
             return recipe
-
+        location = location + 1  
+        location = location % count
+        if(location == random_location):  
+            print("No recipe found for specified inputs.")
+            break  
 
 def create(model, surprise, foodpair, people):
     #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
@@ -178,7 +188,7 @@ def create(model, surprise, foodpair, people):
                 break
         new_ingredients = cook(inspiration, model)
         #selected_ingredients = select(new_ingredients)
-        list_of_selected_ingredients = select_all_possible_pair(new_ingredients)
+        list_of_selected_ingredients = select_all_possible_pair(new_ingredients)        
         for selected_ingredients in list_of_selected_ingredients:
             initial_ingredients = generate_recipe()
             ingredient_strings = []
