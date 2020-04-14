@@ -488,6 +488,7 @@ orange juice 250
 vegetable juice 800
 tomato juice 800
 v-8 juice 700
+soy milk 800
 port 800
 scotch 500
 vinaigrette 500
