@@ -13,14 +13,24 @@ class recipeClass:
         self.toppings = []
         self.flour_options = ['Flour','Mixes']
         self.dry_options = ['Spices', 'Dry', 'Salt and Pepper', 'Corn and Wheat', 'Chips, Crumbs, and Grits', 'Rice', 'Other Grain', 'Seeds'] # 'Pasta' is out
-        self.wet_options = ['Creams and Eggs', 'Wet', 'Sauces', 'Liquids', 'Grease and Fat', 'Nut butter', 'Chilies']
-        self.mix_options = ['Fruits', 'Vegetables', 'Cheese', 'Mix', 'Nut', 'Weird Spices'] # 'Bread' has been removed as a category. Also 'Meats' temporarily so I can make vegetarian ones.
+        self.wet_options = ['Wet', 'Sauces', 'Liquids', 'Grease and Fat', 'Chilies']
+        self.mix_options = ['Fruits', 'Vegetables', 'Mix', 'Weird Spices'] # 'Bread' has been removed as a category. Also 'Meats' temporarily so I can make vegetarian ones.
         self.toppings_options = []
         self.flour_dry_low = 50
         self.wet_dry_low = 50
         self.wet_dry_high = 60
         self.mix_dry_high = 25
         self.toppings_dry_high = 25
+    def add_category(self,meat_option = False, nuts_option = False, dairy_option = False):
+        if meat_option:
+            self.mix_options += ['Meats']
+        if nuts_option:
+            self.wet_options += ['Nut butter']
+            self.mix_options += ['Nut']
+        if dairy_option:
+            self.wet_options += ['Creams and Eggs']
+            self.mix_options += ['Cheese']
+
     def add_ingredient(self, ingredient):
         for i in range(len(ingredient.get_class())):
             i_class = ingredient.get_class()[i]
@@ -58,7 +68,7 @@ class recipeClass:
                 toppings = "Serve with " +  self.toppings[0].get_name() + '.\n'
         toppings = toppings + "Enjoy!\n"
         return ''.join([dry,wet,mix,cook,toppings])
-    def ingredients_string(self): 
+    def ingredients_string(self):
         ingredients = ""
         for ingredient in self.flour:
             ingredients += str(ingredient)
@@ -76,7 +86,7 @@ class recipeClass:
             ingredients += str(ingredient)
             ingredients += '\n'
         return (ingredients)
-    def print_ingredients(self): 
+    def print_ingredients(self):
         for ingredient in self.flour:
             print(ingredient)
         for ingredient in self.dry:
@@ -158,7 +168,7 @@ class ingredientClass:
     def value_to_measurement(self):
         if self.name == 'egg':
             return str(round(self.amount / 250))
-        elif self.amount >= 250:    
+        elif self.amount >= 250:
             measurement = self.amount / 1000 * self.ureg.cup
             frac = Fraction(int(round(4*measurement.magnitude)),4)
             return self.fraction_time(frac) + str(measurement.units)
@@ -191,13 +201,16 @@ class ingredientClass:
     def initialize_unit_registry(cls, ureg):
         cls.ureg = ureg
 
-def generate_recipe():
+def generate_recipe(dairy_option):
     # multiplier = cups / 2.3
     f = open('data/basics.json', 'r')
     data = json.load(f)
     ureg = UnitRegistry()
     ingredientClass.initialize_unit_registry(ureg)
-    basics = data['basics']
+    if dairy_option:
+        basics = data['basics']
+    else:
+        basics = data['No_milk_basics']
     ingredients = []
     for basic in basics:
         ingredients.append(ingredientClass(basic))
@@ -205,8 +218,8 @@ def generate_recipe():
     # for ingredient in ingredients:
     #     ingredient.multiply(multiplier)
     #     print(ingredient)
-    
-generate_recipe()
+
+#generate_recipe(False)
 # battersize = 4
 # mixin_to_dry = 1
 # wet_to_dry = 1.2
