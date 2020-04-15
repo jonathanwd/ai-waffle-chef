@@ -3,7 +3,7 @@ from parts.classify import classify
 from parts.w2vChef import ingredientIdeas, wordcheck
 from parts.amount import get_amount
 from parts.parings import pair
-from parts.evaluators import waffleness_estimator
+from parts.evaluators import waffleness_estimator, get_micronutrient_info
 from parts.surprise import surprise_score
 from parts.food_pair_probability import pair_score
 from parts.gpt2Chef import ingredientIdeas_gpt2, find_ingredients
@@ -194,6 +194,8 @@ def one_recipe(model, surprise, foodpair, people, inspiration, model_sel, meat_o
             print("///////////////////////////////////////")
             print("Surprise score:" + str(round(score * 100, 1)))
             print("Food Pair score:" + str(round(p_score, 1)))
+            mni = get_micronutrient_info(R=recipe)
+            print('Contained micronutrients: '+', '.join(mni))
             isWaffle = 'Yes' if waffleness_estimator(R=recipe) else 'No'
             print('Is this a waffle recipe? {}.'.format(isWaffle))
             print("---------------------------------------")
@@ -255,6 +257,8 @@ def create(model, surprise, foodpair, people, model_sel, meat_option, nuts_optio
                 print("///////////////////////////////////////")
                 print("Surprise score:" + str(round(score * 100, 1)))
                 print("Food Pair score:" + str(round(p_score, 1)))
+                mni = get_micronutrient_info(R=recipe)
+                print('Contained micronutrients: '+', '.join(mni))
                 isWaffle = 'Yes' if waffleness_estimator(R=recipe) else 'No'
                 print('Is this a waffle recipe? {}.'.format(isWaffle))
                 print("---------------------------------------")

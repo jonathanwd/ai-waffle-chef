@@ -1,3 +1,5 @@
+import json
+
 import joblib
 import numpy as np
 
@@ -54,3 +56,30 @@ def get_waffleness(R: recipeClass, model=waffleness_pca):
 def waffleness_estimator(R: recipeClass, threshold=10):
     score = get_waffleness(R)
     return True if score > threshold else False
+
+
+with open('micronutrients.json') as json_file:
+    micronutrient_info = json.load(json_file)
+
+
+def get_micronutrient_info(R: recipeClass):
+
+    mni = []
+
+    ingredients = R.flour + R.dry + R.wet + R.mix + R.toppings
+    for k, v in micronutrient_info.items():
+        sign = False
+        for ingr in ingredients:
+            if sign:
+                break
+            _name = ingr.name.lower()
+            for i in v:
+                if _name in i.lower():
+                    sign = True
+                    mni.append(k)
+                    break
+
+    if len(mni) == 0:
+        return ['N/A']
+
+    return mni
