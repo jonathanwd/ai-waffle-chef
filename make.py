@@ -3,7 +3,7 @@ from parts.classify import classify
 from parts.w2vChef import ingredientIdeas, wordcheck
 from parts.amount import get_amount
 from parts.parings import pair
-from parts.evaluators import waffleness_estimator
+from parts.evaluators import waffleness_estimator, get_micronutrient_info
 from parts.surprise import surprise_score
 from parts.food_pair_probability import pair_score
 from parts.gpt2Chef import ingredientIdeas_gpt2, find_ingredients
@@ -194,6 +194,8 @@ def one_recipe(model, surprise, foodpair, people, inspiration, model_sel, meat_o
             print("///////////////////////////////////////")
             print("Surprise score:" + str(round(score * 100, 1)))
             print("Food Pair score:" + str(round(p_score, 1)))
+            mni = get_micronutrient_info(R=recipe)
+            print('Contained micronutrients: '+', '.join(mni))
             isWaffle = 'Yes' if waffleness_estimator(R=recipe) else 'No'
             print('Is this a waffle recipe? {}.'.format(isWaffle))
             print("---------------------------------------")
@@ -207,13 +209,14 @@ def one_recipe(model, surprise, foodpair, people, inspiration, model_sel, meat_o
             print("No recipe found for specified inputs.")
             break
 
-def create(model, surprise, foodpair, people, model_sel, meat_option, nuts_option, dairy_option):
+def create(model, people, model_sel, meat_option, nuts_option, dairy_option):
     #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
     surprise_percentiles = [0.412, 0.490, 0.512, 0.528, 0.545, 0.565, 0.580, 0.601, 0.624, 0.654, 0.748]
     foodpair_percentiles = [11.0, 15.4, 16.8, 17.6, 18.3, 19.0, 19.8, 20.7, 21.7, 23.1, 27.1]
     surprise_rating = int(surprise/10)
     foodpair_rating = int(foodpair/10)
     multiplier = people / 3
+
     while True:
         print("What kinds of waffle would you like to eat?")
         while True:
@@ -229,6 +232,11 @@ def create(model, surprise, foodpair, people, model_sel, meat_option, nuts_optio
         new_ingredients, key_ingredients = cook(inspiration, model,model_sel)
         #selected_ingredients = select(new_ingredients)
         list_of_selected_ingredients = select_all_possible_pair(new_ingredients, key_ingredients)
+        recipe_list = []
+        surprise_list = []
+        pair_list = []
+        waffleness_list = []
+        micronutrients_list = []
         for selected_ingredients in list_of_selected_ingredients:
             initial_ingredients = generate_recipe(dairy_option)
             ingredient_strings = []
@@ -248,21 +256,51 @@ def create(model, surprise, foodpair, people, model_sel, meat_option, nuts_optio
                 recipe.add_ingredient(i)
             recipe.update_amounts()
 
-            if(score > surprise_percentiles[surprise_rating] and p_score > foodpair_percentiles[foodpair_rating]):
-                print("")
-                print("///////////////////////////////////////")
-                print(inspiration + " waffle recipe")
-                print("///////////////////////////////////////")
-                print("Surprise score:" + str(round(score * 100, 1)))
-                print("Food Pair score:" + str(round(p_score, 1)))
-                isWaffle = 'Yes' if waffleness_estimator(R=recipe) else 'No'
-                print('Is this a waffle recipe? {}.'.format(isWaffle))
-                print("---------------------------------------")
-                recipe.print_ingredients()
-                print('')
-                print(recipe.print_recipe())
-                del initial_ingredients
-                del recipe
+            mni = get_micronutrient_info(R=recipe)
+            isWaffle = 'Yes' if waffleness_estimator(R=recipe) else 'No'
+
+            recipe_list.append(copy.copy(recipe))
+            pair_list.append(copy.copy(p_score))
+            surprise_list.append(copy.copy(score))
+            waffleness_list.append(copy.copy(isWaffle))
+            micronutrients_list.append(copy.copy(mni))
+
+            del initial_ingredients
+            del recipe
+
+        max_num = len(recipe_list)
+        mode_num = len(recipe_list) // 2
+        pair_index = sorted(range(len(pair_list)), key=lambda k: pair_list[k])
+        surprise_index = sorted(range(len(surprise_list)), key=lambda k: surprise_list[k])
+        out_index = [0,1,2,3,4, mode_num - 2, mode_num - 1, mode_num, mode_num + 1, mode_num + 2,max_num-5,max_num-4,max_num-3,max_num-2,max_num-1]
+        for i in out_index:
+            temp_index = surprise_index[i]
+            print("")
+            print("///////////////////////////////////////")
+            print(inspiration + " waffle recipe : SUPERISE RANK " + str(max_num - i))
+            print("///////////////////////////////////////")
+            print("Surprise score:" + str(round(surprise_list[temp_index] * 100, 1)))
+            print("Food Pair score:" + str(round(pair_index[temp_index], 1)))
+            print('Contained micronutrients: '+', '.join(micronutrients_list[temp_index]))
+            print('Is this a waffle recipe? {}.'.format(waffleness_list[temp_index]))
+            print("---------------------------------------")
+            recipe_list[temp_index].print_ingredients()
+            print('')
+            #print(recipe.print_recipe())
+            print("")
+        for i in out_index:
+            temp_index = pair_index[i]
+            print("")
+            print("///////////////////////////////////////")
+            print(inspiration + " waffle recipe : FOOD PAIR RANK " + str(max_num - i))
+            print("///////////////////////////////////////")
+            print("Surprise score:" + str(round(surprise_list[temp_index] * 100, 1)))
+            print("Food Pair score:" + str(round(pair_index[temp_index], 1)))
+            print('Contained micronutrients: '+', '.join(micronutrients_list[temp_index]))
+            print('Is this a waffle recipe? {}.'.format(waffleness_list[temp_index]))
+            print("---------------------------------------")
+            recipe_list[temp_index].print_ingredients()
+            print('')
 
 if __name__ == '__main__':
     # # Uncomment this section to run without the GUI
@@ -271,8 +309,8 @@ if __name__ == '__main__':
     surprise = 50
     foodpair = 30
     people = 3
-    model_sel = 0
-    meat_option = False
-    nuts_option = False
-    dairy_option = False
-    create(model, surprise, foodpair, people, model_sel, meat_option, nuts_option, dairy_option)
+    model_sel = 1
+    meat_option = True
+    nuts_option = True
+    dairy_option = True
+    create(model, people, model_sel, meat_option, nuts_option, dairy_option)
