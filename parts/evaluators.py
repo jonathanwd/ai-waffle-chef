@@ -58,7 +58,7 @@ def waffleness_estimator(R: recipeClass, threshold=10):
     return True if score > threshold else False
 
 
-with open('micronutrients.json') as json_file:
+with open('data/micronutrients.json') as json_file:
     micronutrient_info = json.load(json_file)
 
 
