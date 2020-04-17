@@ -255,7 +255,6 @@ def create(model, people, model_sel, meat_option, nuts_option, dairy_option):
                 i.multiply(multiplier)
                 recipe.add_ingredient(i)
             recipe.update_amounts()
-
             mni = get_micronutrient_info(R=recipe)
             isWaffle = 'Yes' if waffleness_estimator(R=recipe) else 'No'
 
