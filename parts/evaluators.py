@@ -2,9 +2,12 @@ import json
 
 import joblib
 import numpy as np
+import inflect
 
 from parts.simple import recipeClass
 
+
+p = inflect.engine()
 
 # load the model from disk
 waffleness_pca = joblib.load('data/waffleness.model')
@@ -73,7 +76,7 @@ def get_micronutrient_info(R: recipeClass):
                 break
             _name = ingr.name.lower()
             for i in v:
-                if _name in i.lower():
+                if p.compare(_name, i.lower()):
                     sign = True
                     mni.append(k)
                     break
