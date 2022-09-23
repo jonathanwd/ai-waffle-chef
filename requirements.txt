@@ -28,7 +28,7 @@ Markdown==3.2.1
 num2words==0.5.10
 numpy==1.18.2
 Pint==0.11
-protobuf==3.11.3
+protobuf==3.18.3
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 PySimpleGUI==4.18.2
